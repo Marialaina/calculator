@@ -6,38 +6,46 @@ const multiplyBtn = document.getElementById('btn-multiply');
 const divideBtn = document.getElementById('btn-divide');
 const currentResultOutput = document.getElementById('current-result');
 const currentCalculationOutput = document.getElementById('current-calculation');
-function outputResult(result, text) {
+
+
+const outputResult = (result, text) => {
   currentResultOutput.textContent = result;
   currentCalculationOutput.textContent = text;
 }
+
 const defaultResult = 0;
 let currentResult = defaultResult;
-function getUserNumberInput() {
+
+const  getUserNumberInput = () => {
   return parseInt(usrInput.value);
 }
-function createAndWriteOutput(operator, resultBeforeCalc, calcNumber) {
+
+const createAndWriteOutput = (operator, resultBeforeCalc, calcNumber) => {
   const calcDescription = `${resultBeforeCalc} ${operator} ${calcNumber}`;
   outputResult(currentResult, calcDescription);
 }
-function add() {
+
+const add = () => {
   const enteredNumber = getUserNumberInput();
   const initialResult = currentResult;
   currentResult = currentResult + enteredNumber;
   createAndWriteOutput('+', initialResult, enteredNumber);
 }
-function subtract() {
+const subtract = () => {
   const enteredNumber = getUserNumberInput();
   const initialResult = currentResult;
   currentResult = currentResult - enteredNumber;
   createAndWriteOutput('-', initialResult, enteredNumber);
 }
-function multiply() {
+
+const multiply = () => {
   const enteredNumber = getUserNumberInput();
   const initialResult = currentResult;
   currentResult = currentResult * enteredNumber;
   createAndWriteOutput('*', initialResult, enteredNumber);
 }
-function divide() {
+
+const divide = () => {
   const enteredNumber = getUserNumberInput();
   const initialResult = currentResult;
   currentResult = currentResult / enteredNumber;
