@@ -15,11 +15,14 @@ const outputResult = (result, text) => {
 
 const defaultResult = 0;
 let currentResult = defaultResult;
+let logEntries = [];
 
+//GETS INPUT FROM INPUT FIELD
 const  getUserNumberInput = () => {
   return parseInt(usrInput.value);
 }
 
+//GENERATES AND WRITES CALCULATION LOG
 const createAndWriteOutput = (operator, resultBeforeCalc, calcNumber) => {
   const calcDescription = `${resultBeforeCalc} ${operator} ${calcNumber}`;
   outputResult(currentResult, calcDescription);
@@ -28,27 +31,28 @@ const createAndWriteOutput = (operator, resultBeforeCalc, calcNumber) => {
 const add = () => {
   const enteredNumber = getUserNumberInput();
   const initialResult = currentResult;
-  currentResult = currentResult + enteredNumber;
+  currentResult += enteredNumber;
   createAndWriteOutput('+', initialResult, enteredNumber);
+  logEntries.push(enteredNumber);
 }
 const subtract = () => {
   const enteredNumber = getUserNumberInput();
   const initialResult = currentResult;
-  currentResult = currentResult - enteredNumber;
+  currentResult -= enteredNumber;
   createAndWriteOutput('-', initialResult, enteredNumber);
 }
 
 const multiply = () => {
   const enteredNumber = getUserNumberInput();
   const initialResult = currentResult;
-  currentResult = currentResult * enteredNumber;
+  currentResult *= enteredNumber;
   createAndWriteOutput('*', initialResult, enteredNumber);
 }
 
 const divide = () => {
   const enteredNumber = getUserNumberInput();
   const initialResult = currentResult;
-  currentResult = currentResult / enteredNumber;
+  currentResult /= enteredNumber;
   createAndWriteOutput('/', initialResult, enteredNumber);
 }
 addBtn.addEventListener('click', add);
